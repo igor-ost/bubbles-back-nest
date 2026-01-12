@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { getTypeORMConfig } from './config/typeorm.config';
+import { BubblesModule } from './bubbles/bubbles.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { getTypeORMConfig } from './config/typeorm.config';
       useFactory: getTypeORMConfig,
       inject: [ConfigService], 
     }),
+    BubblesModule,
   ], 
   controllers: [AppController],
   providers: [AppService], 
