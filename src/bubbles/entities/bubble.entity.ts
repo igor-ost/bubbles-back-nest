@@ -1,4 +1,6 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { CommentsEntity } from "src/comments/entities/comment.entity";
+import { LikeEntity } from "src/likes/entities/like.entity";
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity("bubbles")
 export class BubbleEntity {
@@ -52,7 +54,14 @@ export class BubbleEntity {
     /* Получил ли пузырь вознаграждение (1 = да 0 = нет) */
     @Column("int",{default: 0})
     gotBonus: boolean
+
+    /* Привязка к комментариям OneToMany */
+    @OneToMany(()=>CommentsEntity,(comment)=>comment.bubble)
+    comments: CommentsEntity[]
     
+    @OneToMany(()=>LikeEntity, (like)=>like.bubble)
+    likes: LikeEntity[]
+
     /* Дата создания */
     @CreateDateColumn()
     createdAt: Date;

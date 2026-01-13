@@ -5,6 +5,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { getTypeORMConfig } from './config/typeorm.config';
 import { BubblesModule } from './bubbles/bubbles.module';
+import { CommentsModule } from './comments/comments.module';
+import { LikesModule } from './likes/likes.module';
 
 @Module({
   imports: [
@@ -17,6 +19,8 @@ import { BubblesModule } from './bubbles/bubbles.module';
       inject: [ConfigService], 
     }),
     BubblesModule,
+    CommentsModule,
+    LikesModule,
   ], 
   controllers: [AppController],
   providers: [AppService], 

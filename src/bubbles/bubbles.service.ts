@@ -20,6 +20,10 @@ export class BubblesService {
     return await this.bubblesRepository.find({
       order:{
         createdAt: 'ASC'
+      },
+      relations: {
+        comments: true,
+        likes: true,
       }
     })
   }
@@ -29,6 +33,10 @@ export class BubblesService {
     const bubble = await this.bubblesRepository.findOne({
       where: {
         id: id
+      },
+    relations: {
+        comments: true,
+        likes: true
       }
     })
     if(!bubble){
