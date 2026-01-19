@@ -7,22 +7,24 @@ import { getTypeORMConfig } from './config/typeorm.config';
 import { BubblesModule } from './bubbles/bubbles.module';
 import { CommentsModule } from './comments/comments.module';
 import { LikesModule } from './likes/likes.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ 
-      isGlobal: true
+    ConfigModule.forRoot({
+      isGlobal: true,
     }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: getTypeORMConfig,
-      inject: [ConfigService], 
+      inject: [ConfigService],
     }),
+    AuthModule,
     BubblesModule,
     CommentsModule,
     LikesModule,
-  ], 
+  ],
   controllers: [AppController],
-  providers: [AppService], 
+  providers: [AppService],
 })
 export class AppModule {}

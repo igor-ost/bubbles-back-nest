@@ -6,7 +6,7 @@ import { LikeEntity } from './entities/like.entity';
 import { BubblesModule } from 'src/bubbles/bubbles.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([LikeEntity]),BubblesModule],
+  imports: [TypeOrmModule.forFeature([LikeEntity]), BubblesModule],
   controllers: [LikesController],
   providers: [LikesService],
 })

@@ -1,11 +1,11 @@
 import { ConfigService } from '@nestjs/config';
-import type { TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
-
-export async function getTypeORMConfig(
+export function getTypeORMConfig(
   configService: ConfigService,
-): Promise<TypeOrmModuleOptions> {
+): TypeOrmModuleOptions {
   const port = Number(configService.getOrThrow('MSSQL_PORT'));
+
   return {
     type: 'mssql',
     host: configService.getOrThrow('MSSQL_HOST'),
@@ -16,9 +16,9 @@ export async function getTypeORMConfig(
     synchronize: true,
     autoLoadEntities: true,
     options: {
-      encrypt: true, 
+      encrypt: true,
       enableArithAbort: true,
-      trustServerCertificate: true, 
+      trustServerCertificate: true,
     },
   };
 }

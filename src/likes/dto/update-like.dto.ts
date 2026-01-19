@@ -9,6 +9,6 @@ export class UpdateLikeDto extends PartialType(CreateLikeDto) {
 
   /* Автор (не обязательное поле)*/
   @IsString()
-  @Length(2,80)
+  @Length(2, 80)
   author: string | undefined;
 }

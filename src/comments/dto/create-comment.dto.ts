@@ -1,4 +1,4 @@
-import { IsString, Length } from "class-validator";
+import { IsString, Length } from 'class-validator';
 
 export class CreateCommentDto {
   /* ID пузыря (обязательное поле)*/
@@ -11,6 +11,6 @@ export class CreateCommentDto {
 
   /* Автор (не обязательное поле)*/
   @IsString()
-  @Length(2,80)
+  @Length(2, 80)
   author: string;
 }

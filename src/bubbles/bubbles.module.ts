@@ -8,6 +8,6 @@ import { BubbleEntity } from './entities/bubble.entity';
   imports: [TypeOrmModule.forFeature([BubbleEntity])],
   controllers: [BubblesController],
   providers: [BubblesService],
-  exports: [BubblesService]
+  exports: [BubblesService],
 })
 export class BubblesModule {}
